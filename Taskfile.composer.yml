@@ -1,0 +1,21 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - docker compose run -it --rm --user {{.UID}}:{{.GID}} composer {{.CLI_ARGS}}
+
+  cli:
+    cmds:
+      - docker compose run -it --rm --user {{.UID}}:{{.GID}} --entrypoint /bin/bash composer
+
+  install:
+    cmds:
+      - docker compose run -it --rm --user {{.UID}}:{{.GID}} composer install
+
+  update:
+    cmds:
+      - docker compose run -it --rm --user {{.UID}}:{{.GID}} composer update
+

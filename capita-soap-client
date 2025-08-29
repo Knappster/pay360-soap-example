@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+use Knappster\CapitaPay360\Application;
+
+require __DIR__ . '/vendor/autoload.php';
+
+/** @var Application */
+$app = require_once __DIR__ . '/app/bootstrap.php';
+
+$app->run();

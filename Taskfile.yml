@@ -1,0 +1,36 @@
+# https://taskfile.dev
+
+version: '3'
+
+dotenv: [".env"]
+
+env:
+  UID:
+    sh: id -u
+  GID:
+    sh: id -g
+
+includes:
+  app: ./Taskfile.app.yml
+  composer: ./Taskfile.composer.yml
+  soap: ./Taskfile.soap.yml
+
+silent: true
+
+tasks:
+  image-build:
+    cmds:
+      - docker compose --profile "*" build {{.CLI_ARGS}}
+
+  phpstan:
+    cmds:
+      - docker compose run --rm phpstan
+
+  setup:
+    cmds:
+      - task: image-build
+      - task: composer:install
+
+  pint:
+    cmds:
+      - docker compose run -it --rm --user {{.UID}}:{{.GID}} pint {{.CLI_ARGS}}

@@ -1,0 +1,14 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - docker compose run -it --rm --user {{.UID}}:{{.GID}} app {{.CLI_ARGS}}
+
+  scp-version:
+    cmds:
+      - docker compose run -it --rm --user {{.UID}}:{{.GID}} app app:scp-version
+
+  scp-simple-invoke:
+    cmds:
+      - docker compose run -it --rm --user {{.UID}}:{{.GID}} app app:scp-simple-invoke

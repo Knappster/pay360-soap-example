@@ -1,0 +1,27 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  generate-types:
+    cmds:
+      - docker compose run -it --rm php-cli ./vendor/bin/soap-client generate:types --config ./app/soap-client-config.php
+
+  generate-classmap:
+    cmds:
+      - docker compose run -it --rm php-cli ./vendor/bin/soap-client generate:classmap --config ./app/soap-client-config.php
+
+  generate-client:
+    cmds:
+      - docker compose run -it --rm php-cli ./vendor/bin/soap-client generate:client --config ./app/soap-client-config.php
+
+  generate-clientfactory:
+    cmds:
+      - docker compose run -it --rm php-cli ./vendor/bin/soap-client generate:clientfactory --config ./app/soap-client-config.php
+
+  generate:
+    cmds:
+     - task: generate-types
+     - task: generate-classmap
+     - task: generate-client
+     - task: generate-clientfactory

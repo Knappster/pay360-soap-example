@@ -1,0 +1,44 @@
+{
+  "name": "knappster/capita-pay-360",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "Knappster\\CapitaPay360\\": "app/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Carl Knapp <kn4ppster@gmail.com>"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/veewee/wsdl-reader.git"
+    }
+  ],
+  "require": {
+    "php": "^8.3",
+    "nyholm/psr7": "^1.8",
+    "phpro/soap-client": "^4.2",
+    "ramsey/uuid": "^4.9",
+    "symfony/cache": "^7.3",
+    "symfony/config": "^7.3",
+    "symfony/console": "^7.3",
+    "symfony/http-client": "^7.3",
+    "vlucas/phpdotenv": "^5.6",
+    "php-soap/wsdl-reader": "dev-always-use-element-namespace-as-target as 0.25.0"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "cache-read-only": true,
+    "allow-plugins": {
+      "php-http/discovery": true
+    }
+  },
+  "require-dev": {
+    "laravel/pint": "^1.24",
+    "symfony/var-dumper": "^7.3"
+  }
+}

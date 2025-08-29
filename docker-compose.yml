@@ -1,0 +1,46 @@
+services:
+  php-cli:
+    profiles: ["cli"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app
+    volumes:
+      - ./:/app
+
+  app:
+    profiles: ["app"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: ["php", "/app/capita-soap-client"]
+    volumes:
+      - ./:/app
+
+  composer:
+    profiles: ["composer"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: ["composer"]
+    command: ["--version"]
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - ./.composer:/.composer
+
+  phpstan:
+    profiles: ["phpstan"]
+    image: ghcr.io/phpstan/phpstan:2-php8.4
+    command: ["analyse", "-c", "phpstan.neon", "--memory-limit", "1G"]
+    volumes:
+      - ./:/app
+
+  pint:
+    profiles: ["pint"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: ["/app/vendor/bin/pint"]
+    volumes:
+      - ./:/app
