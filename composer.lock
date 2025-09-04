@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab5b4899026a434fd1c3225b3d9779d2",
+    "content-hash": "672f50baa3adcbfadb701aaf2e0342bb",
     "packages": [
         {
             "name": "azjezz/psl",
@@ -1363,16 +1363,16 @@
         },
         {
             "name": "php-soap/wsdl-reader",
-            "version": "dev-always-use-element-namespace-as-target",
+            "version": "0.26.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/veewee/wsdl-reader.git",
-                "reference": "a201d828f2fa71cdef61cbed181c3b55fb6205b4"
+                "url": "https://github.com/php-soap/wsdl-reader.git",
+                "reference": "f4ebc7bbb86a104ed668cc08660e11ef23e2cd1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/veewee/wsdl-reader/zipball/a201d828f2fa71cdef61cbed181c3b55fb6205b4",
-                "reference": "a201d828f2fa71cdef61cbed181c3b55fb6205b4",
+                "url": "https://api.github.com/repos/php-soap/wsdl-reader/zipball/f4ebc7bbb86a104ed668cc08660e11ef23e2cd1a",
+                "reference": "f4ebc7bbb86a104ed668cc08660e11ef23e2cd1a",
                 "shasum": ""
             },
             "require": {
@@ -1402,11 +1402,7 @@
                     "Soap\\WsdlReader\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Soap\\WsdlReader\\Test\\": "tests/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1418,15 +1414,16 @@
             ],
             "description": "A WSDL reader in PHP",
             "support": {
-                "source": "https://github.com/veewee/wsdl-reader/tree/always-use-element-namespace-as-target"
+                "issues": "https://github.com/php-soap/wsdl-reader/issues",
+                "source": "https://github.com/php-soap/wsdl-reader/tree/0.26.0"
             },
             "funding": [
                 {
-                    "type": "open_collective",
-                    "url": "https://opencollective.com/php-soap"
+                    "url": "https://opencollective.com/php-soap",
+                    "type": "open_collective"
                 }
             ],
-            "time": "2025-08-29T05:58:04+00:00"
+            "time": "2025-09-03T09:04:50+00:00"
         },
         {
             "name": "php-soap/xml",
@@ -4671,18 +4668,9 @@
             "time": "2025-08-13T11:49:31+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "php-soap/wsdl-reader",
-            "version": "dev-always-use-element-namespace-as-target",
-            "alias": "0.25.0",
-            "alias_normalized": "0.25.0.0"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "php-soap/wsdl-reader": 20
-    },
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

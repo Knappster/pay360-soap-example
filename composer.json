@@ -11,12 +11,6 @@
       "name": "Carl Knapp <kn4ppster@gmail.com>"
     }
   ],
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/veewee/wsdl-reader.git"
-    }
-  ],
   "require": {
     "php": "^8.3",
     "nyholm/psr7": "^1.8",
@@ -26,8 +20,7 @@
     "symfony/config": "^7.3",
     "symfony/console": "^7.3",
     "symfony/http-client": "^7.3",
-    "vlucas/phpdotenv": "^5.6",
-    "php-soap/wsdl-reader": "dev-always-use-element-namespace-as-target as 0.25.0"
+    "vlucas/phpdotenv": "^5.6"
   },
   "config": {
     "optimize-autoloader": true,

@@ -22,14 +22,14 @@ class CapitaClient
 
     /**
      * @param RequestInterface & Types\ScpSimpleInvokeRequest $scpSimpleInvokeRequest
-     * @return ResultInterface & Types\ScpInvokeResponse
+     * @return ResultInterface & Types\ScpSimpleInvokeResponse
      * @throws SoapException
      */
-    public function scpSimpleInvoke(\Knappster\CapitaPay360\SoapClient\Capita\Types\ScpSimpleInvokeRequest $scpSimpleInvokeRequest) : \Knappster\CapitaPay360\SoapClient\Capita\Types\ScpInvokeResponse
+    public function scpSimpleInvoke(\Knappster\CapitaPay360\SoapClient\Capita\Types\ScpSimpleInvokeRequest $scpSimpleInvokeRequest) : \Knappster\CapitaPay360\SoapClient\Capita\Types\ScpSimpleInvokeResponse
     {
         $response = ($this->caller)('scpSimpleInvoke', $scpSimpleInvokeRequest);
 
-        \Psl\Type\instance_of(\Knappster\CapitaPay360\SoapClient\Capita\Types\ScpInvokeResponse::class)->assert($response);
+        \Psl\Type\instance_of(\Knappster\CapitaPay360\SoapClient\Capita\Types\ScpSimpleInvokeResponse::class)->assert($response);
         \Psl\Type\instance_of(\Phpro\SoapClient\Type\ResultInterface::class)->assert($response);
 
         return $response;

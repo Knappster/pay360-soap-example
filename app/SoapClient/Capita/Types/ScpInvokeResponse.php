@@ -2,9 +2,7 @@
 
 namespace Knappster\CapitaPay360\SoapClient\Capita\Types;
 
-use Phpro\SoapClient\Type\ResultInterface;
-
-class ScpInvokeResponse extends ScpResponse implements ResultInterface
+class ScpInvokeResponse extends ScpResponse
 {
     /**
      * @var \Knappster\CapitaPay360\SoapClient\Capita\Types\InvokeResult
