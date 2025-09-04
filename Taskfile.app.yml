@@ -12,3 +12,7 @@ tasks:
   scp-simple-invoke:
     cmds:
       - docker compose run -it --rm --user {{.UID}}:{{.GID}} app app:scp-simple-invoke
+
+  scp-simple-query:
+    cmds:
+      - docker compose run -it --rm --user {{.UID}}:{{.GID}} app app:scp-simple-query

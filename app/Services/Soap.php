@@ -15,11 +15,15 @@ use Knappster\CapitaPay360\SoapClient\Capita\Types\InvokeResult;
 use Knappster\CapitaPay360\SoapClient\Capita\Types\PanEntryMethod;
 use Knappster\CapitaPay360\SoapClient\Capita\Types\RequestIdentification;
 use Knappster\CapitaPay360\SoapClient\Capita\Types\RequestType;
+use Knappster\CapitaPay360\SoapClient\Capita\Types\ResponseVersion;
 use Knappster\CapitaPay360\SoapClient\Capita\Types\Routing;
 use Knappster\CapitaPay360\SoapClient\Capita\Types\ScpSimpleInvokeRequest;
+use Knappster\CapitaPay360\SoapClient\Capita\Types\ScpSimpleQueryRequest;
+use Knappster\CapitaPay360\SoapClient\Capita\Types\ScpSimpleQueryResponse;
 use Knappster\CapitaPay360\SoapClient\Capita\Types\ScpVersionRequest;
 use Knappster\CapitaPay360\SoapClient\Capita\Types\ScpVersionResponse;
 use Knappster\CapitaPay360\SoapClient\Capita\Types\Signature;
+use Knappster\CapitaPay360\SoapClient\Capita\Types\SimplePaymentResult;
 use Knappster\CapitaPay360\SoapClient\Capita\Types\SimpleSale;
 use Knappster\CapitaPay360\SoapClient\Capita\Types\Subject;
 use Knappster\CapitaPay360\SoapClient\Capita\Types\SubjectType;
@@ -146,6 +150,22 @@ class Soap
         return $request;
     }
 
+    /**
+     * Create SCP query request.
+     */
+    private function createScpQueryRequest(string $scpReference): ScpSimpleQueryRequest
+    {
+        $request = new ScpSimpleQueryRequest(
+            credentials: $this->getCredentials(),
+            siteId: (int) $this->siteId,
+            scpReference: $scpReference,
+            acceptNonCardResponseData: null,
+            responseVersion: ResponseVersion::Value_132
+        );
+
+        return $request;
+    }
+
     public function getScpVersion(): ScpVersionResponse
     {
         $request = $this->createScpVersionRequest();
@@ -157,10 +177,19 @@ class Soap
     public function getScpSimpleInvoke(): InvokeResult
     {
         $client = $this->createScpService();
-        $invoke_request = $this->createScpSimpleInvokeRequest();
-        $response = $client->scpSimpleInvoke($invoke_request);
+        $request = $this->createScpSimpleInvokeRequest();
+        $response = $client->scpSimpleInvoke($request);
         $result = $response->getInvokeResult();
 
         return $result;
+    }
+
+    public function getScpSimpleQuery(): ScpSimpleQueryResponse
+    {
+        $client = $this->createScpService();
+        $request = $this->createScpQueryRequest('dummy_reference');
+        $response = $client->scpSimpleQuery($request);
+
+        return $response;
     }
 }

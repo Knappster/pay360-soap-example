@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Knappster\CapitaPay360\Application;
 use Knappster\CapitaPay360\Commands\ScpSimpleInvokeCommand;
+use Knappster\CapitaPay360\Commands\ScpSimpleQueryCommand;
 use Knappster\CapitaPay360\Commands\ScpVersionCommand;
 
 $dotenv = Dotenv\Dotenv::createImmutable([
@@ -21,5 +22,6 @@ $dotenv->required('HMAC_KEY')->notEmpty();
 $application = new Application();
 $application->add(new ScpVersionCommand);
 $application->add(new ScpSimpleInvokeCommand);
+$application->add(new ScpSimpleQueryCommand);
 
 return $application;
